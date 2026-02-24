@@ -39,9 +39,10 @@ func (p *Plugin) OnActivate() error {
 		Description: "Bot for the RC Migrate plugin.",
 	})
 	if appErr != nil {
-		return fmt.Errorf("failed to ensure bot: %s", appErr.Error())
+		p.API.LogWarn("Could not create bot user, ephemeral messages will use empty sender", "error", appErr.Error())
+	} else {
+		p.botUserID = botUserID
 	}
-	p.botUserID = botUserID
 
 	if err := p.registerCommands(); err != nil {
 		return fmt.Errorf("failed to register commands: %w", err)
