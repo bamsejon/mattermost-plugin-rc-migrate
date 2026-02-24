@@ -21,6 +21,7 @@ A Mattermost server plugin that helps migrate channels from Mattermost to Rocket
 
 ```bash
 cd mattermost-plugin-rc-migrate
+go mod tidy
 go mod vendor
 make build
 ```

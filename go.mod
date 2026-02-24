@@ -1,4 +1,4 @@
-module github.com/jonbylund/mattermost-plugin-rc-migrate
+module github.com/bamsejon/mattermost-plugin-rc-migrate
 
 go 1.21
 
