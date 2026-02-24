@@ -32,6 +32,14 @@
                 "type": "text",
                 "default": "This channel has moved to Rocket.Chat",
                 "help_text": "Message shown to users who try to post in a migrated channel. Supports markdown."
+            },
+            {
+                "key": "APISecret",
+                "display_name": "API Secret",
+                "type": "text",
+                "default": "",
+                "help_text": "Shared secret for the REST API. Required for external tools (e.g. Rocket.Chat import app) to trigger migrations remotely. Leave empty to disable the API.",
+                "placeholder": "generate-a-strong-secret-here"
             }
         ]
     }

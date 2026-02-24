@@ -5,6 +5,7 @@ import "fmt"
 type configuration struct {
 	RocketChatBaseURL string
 	RedirectMessage   string
+	APISecret         string
 }
 
 const defaultRedirectMessage = "This channel has moved to Rocket.Chat"
