@@ -1,0 +1,38 @@
+{
+    "id": "se.bylund.mattermost-plugin-rc-migrate",
+    "name": "RC Migrate",
+    "description": "Migrate channels from Mattermost to Rocket.Chat by blocking posts and redirecting users.",
+    "homepage_url": "https://github.com/jonbylund/mattermost-plugin-rc-migrate",
+    "version": "1.0.0",
+    "min_server_version": "7.0.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "linux-arm64": "server/dist/plugin-linux-arm64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "darwin-arm64": "server/dist/plugin-darwin-arm64"
+        },
+        "executable": ""
+    },
+    "settings_schema": {
+        "header": "Settings for the RC Migrate plugin.",
+        "footer": "",
+        "settings": [
+            {
+                "key": "RocketChatBaseURL",
+                "display_name": "Rocket.Chat Base URL",
+                "type": "text",
+                "default": "",
+                "help_text": "Base URL for your Rocket.Chat instance (e.g. https://rc.example.com). Used for display purposes only.",
+                "placeholder": "https://rc.example.com"
+            },
+            {
+                "key": "RedirectMessage",
+                "display_name": "Redirect Message",
+                "type": "text",
+                "default": "Denna kanal har flyttat till Rocket.Chat",
+                "help_text": "Message shown to users who try to post in a migrated channel."
+            }
+        ]
+    }
+}
