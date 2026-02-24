@@ -7,12 +7,7 @@ type configuration struct {
 	RedirectMessage   string
 }
 
-func (c *configuration) isValid() error {
-	if c.RedirectMessage == "" {
-		return fmt.Errorf("RedirectMessage must not be empty")
-	}
-	return nil
-}
+const defaultRedirectMessage = "This channel has moved to Rocket.Chat"
 
 func (p *Plugin) getConfiguration() *configuration {
 	p.configurationLock.RLock()
@@ -20,10 +15,15 @@ func (p *Plugin) getConfiguration() *configuration {
 
 	if p.configuration == nil {
 		return &configuration{
-			RedirectMessage: "Denna kanal har flyttat till Rocket.Chat",
+			RedirectMessage: defaultRedirectMessage,
 		}
 	}
-	return p.configuration
+
+	cfg := *p.configuration
+	if cfg.RedirectMessage == "" {
+		cfg.RedirectMessage = defaultRedirectMessage
+	}
+	return &cfg
 }
 
 func (p *Plugin) OnConfigurationChange() error {
