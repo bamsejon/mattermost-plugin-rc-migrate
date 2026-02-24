@@ -33,13 +33,13 @@ func (p *Plugin) OnActivate() error {
 		return err
 	}
 
-	botUserID, appErr := p.Helpers.EnsureBot(&model.Bot{
+	botUserID, appErr := p.API.EnsureBotUser(&model.Bot{
 		Username:    botUsername,
 		DisplayName: botName,
 		Description: "Bot for the RC Migrate plugin.",
 	})
 	if appErr != nil {
-		return fmt.Errorf("failed to ensure bot: %w", appErr)
+		return fmt.Errorf("failed to ensure bot: %s", appErr.Error())
 	}
 	p.botUserID = botUserID
 
