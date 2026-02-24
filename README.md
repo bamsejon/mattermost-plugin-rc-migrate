@@ -12,22 +12,20 @@ A Mattermost server plugin that helps migrate channels from Mattermost to Rocket
 
 ## Installation
 
-### Download
+### Download and install
 
-[**Download latest release (.tar.gz)**](https://github.com/bamsejon/mattermost-plugin-rc-migrate/releases/latest/download/se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz)
+1. Download the plugin bundle (right-click → **Save Link As** to avoid browser auto-extraction):
 
-### Install in Mattermost
+   [**Download latest release (.tar.gz)**](https://github.com/bamsejon/mattermost-plugin-rc-migrate/releases/latest/download/se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz)
 
-1. Go to **System Console → Plugins → Plugin Management**
-2. Click **Upload Plugin** and select the downloaded `.tar.gz` file
-3. Click **Enable**
+2. In Mattermost, go to **System Console → Plugins → Plugin Management**
+3. Click **Upload Plugin** and select the `.tar.gz` file
+4. Click **Enable**
 
-Or via CLI:
-
-```bash
-mmctl plugin add se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz
-mmctl plugin enable se.bylund.mattermost-plugin-rc-migrate
-```
+> **Tip:** If the file picker doesn't show the file, make sure your browser didn't auto-extract it. The file must end in `.tar.gz`. You can also download it from the terminal:
+> ```bash
+> curl -LO https://github.com/bamsejon/mattermost-plugin-rc-migrate/releases/latest/download/se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz
+> ```
 
 ### Build from source
 
