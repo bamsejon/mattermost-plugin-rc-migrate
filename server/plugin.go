@@ -10,9 +10,7 @@ import (
 )
 
 const (
-	kvPrefix    = "migrated:"
-	botUsername = "rc-migrate"
-	botName     = "RC Migrate Bot"
+	kvPrefix = "migrated:"
 )
 
 type MigrationInfo struct {
@@ -25,23 +23,11 @@ type Plugin struct {
 	plugin.MattermostPlugin
 	configurationLock sync.RWMutex
 	configuration     *configuration
-	botUserID         string
 }
 
 func (p *Plugin) OnActivate() error {
 	if err := p.OnConfigurationChange(); err != nil {
 		return err
-	}
-
-	botUserID, appErr := p.API.EnsureBotUser(&model.Bot{
-		Username:    botUsername,
-		DisplayName: botName,
-		Description: "Bot for the RC Migrate plugin.",
-	})
-	if appErr != nil {
-		p.API.LogWarn("Could not create bot user, ephemeral messages will use empty sender", "error", appErr.Error())
-	} else {
-		p.botUserID = botUserID
 	}
 
 	if err := p.registerCommands(); err != nil {
@@ -58,11 +44,9 @@ func (p *Plugin) MessageWillBePosted(_ *plugin.Context, post *model.Post) (*mode
 	}
 
 	// Ignore bot posts
-	if post.GetProp("from_bot") == "true" || post.UserId == p.botUserID {
+	if post.GetProp("from_bot") == "true" {
 		return post, ""
 	}
-
-	// Check if the poster is a bot
 	user, appErr := p.API.GetUser(post.UserId)
 	if appErr != nil {
 		return post, ""
@@ -88,7 +72,6 @@ func (p *Plugin) MessageWillBePosted(_ *plugin.Context, post *model.Post) (*mode
 
 	p.API.SendEphemeralPost(post.UserId, &model.Post{
 		ChannelId: post.ChannelId,
-		UserId:    p.botUserID,
 		Message:   msg,
 	})
 
