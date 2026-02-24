@@ -3,7 +3,7 @@
     "name": "RC Migrate",
     "description": "Migrate channels from Mattermost to Rocket.Chat by blocking posts and redirecting users.",
     "homepage_url": "https://github.com/bamsejon/mattermost-plugin-rc-migrate",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "min_server_version": "7.0.0",
     "server": {
         "executables": {
