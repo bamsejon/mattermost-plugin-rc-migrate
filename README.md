@@ -14,8 +14,7 @@ A Mattermost server plugin that helps migrate channels from Mattermost to Rocket
 
 ### Download
 
-1. Go to the [Releases page](../../releases/latest)
-2. Download `se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz`
+[**Download latest release (.tar.gz)**](https://github.com/bamsejon/mattermost-plugin-rc-migrate/releases/latest/download/se.bylund.mattermost-plugin-rc-migrate-1.0.0.tar.gz)
 
 ### Install in Mattermost
 
@@ -50,7 +49,7 @@ In **System Console → Plugins → RC Migrate**:
 | Setting | Description | Default |
 |---------|-------------|---------|
 | Rocket.Chat Base URL | Your Rocket.Chat instance URL (informational) | *(empty)* |
-| Redirect Message | Message shown to users in migrated channels | `Denna kanal har flyttat till Rocket.Chat` |
+| Redirect Message | Message shown to users in migrated channels | `This channel has moved to Rocket.Chat` |
 
 ## Usage
 
